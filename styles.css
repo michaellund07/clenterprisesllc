@@ -363,7 +363,15 @@ button { font-family: inherit; }
 }
 .stat-row li { display: flex; flex-direction: column; }
 .stat-num { font-family: var(--font-head); font-size: 2rem; color: var(--navy); font-weight: 700; }
-.stat-num--text { font-size: 1.3rem; letter-spacing: -0.01em; }
+.stat-num--text {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  align-self: flex-start;
+  margin-top: 6px;
+}
 .stat-label { font-size: 0.82rem; color: var(--steel); margin-top: 4px; }
 
 @media (max-width: 860px) {
@@ -409,46 +417,32 @@ button { font-family: inherit; }
 .industries-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
 }
-.industry-card {
-  position: relative;
-  margin: 0;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--hairline); /* visible fallback if an image fails to load */
+.industry-tile {
+  background: var(--warm-white-dim);
+  padding: 38px 34px;
+  transition: background 0.3s var(--ease);
 }
-.industry-card.img-load-failed::before {
-  content: "Image unavailable";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-head);
-  font-size: 0.8rem;
-  color: var(--steel);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.industry-tile:hover { background: var(--warm-white); }
+.industry-icon { width: 56px; height: 56px; margin-bottom: 20px; display: block; }
+.industry-tile.img-load-failed .industry-icon { display: none; }
+.industry-tile.img-load-failed::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border: 1px solid var(--hairline);
+  background: var(--hairline);
 }
-.industry-card img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(35%) brightness(0.7);
-  transition: filter 0.4s var(--ease), transform 0.5s var(--ease);
-}
-.industry-card:hover img { filter: grayscale(0%) brightness(0.85); transform: scale(1.04); }
-.industry-card figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 18px 20px;
-  font-family: var(--font-head);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--warm-white);
-  background: linear-gradient(to top, rgba(22,38,58,0.85), transparent);
-}
+.industry-tile h3 { font-size: 1.1rem; margin-bottom: 0.5em; }
+.industry-tile p { color: var(--steel); font-size: 0.95rem; margin: 0; }
 
 @media (max-width: 860px) { .industries-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .industries-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .industries-grid { grid-template-columns: 1fr; } }
 
 /* =====================================================
    WHY CL ENTERPRISES

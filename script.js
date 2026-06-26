@@ -60,7 +60,7 @@
   document.querySelectorAll("img").forEach(function (img) {
     img.addEventListener("error", function () {
       img.style.display = "none";
-      img.closest("figure, .about-media")?.classList.add("img-load-failed");
+      img.closest("figure, .about-media, .industry-tile")?.classList.add("img-load-failed");
     });
   });
 })();

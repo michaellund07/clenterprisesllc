@@ -9,7 +9,7 @@ Pure HTML5 / CSS3 / vanilla JS — no frameworks, no build step.
 index.html          Page markup
 styles.css           All styles (design tokens at the top of the file)
 script.js            Mobile nav, scroll-reveal, footer year, image-fallback handling
-images/              All photography slots (currently placeholders — see below)
+images/              Photography, custom illustrations, and the one remaining placeholder (see below)
 CNAME                GitHub Pages custom domain (clenterprisesllc.com)
 ```
 
@@ -17,7 +17,9 @@ CNAME                GitHub Pages custom domain (clenterprisesllc.com)
 
 1. Create a new GitHub repository (or use an existing one).
 2. Upload all files in this package to the **root** of the repository
-   (keep the `images/` folder structure intact).
+   (keep the `images/` folder structure intact — drag the `images` folder
+   itself into GitHub's uploader, not its individual contents, or the
+   files will land in the repo root instead of inside `images/`).
 3. In the repo: **Settings → Pages → Source** → select the branch
    (usually `main`) and root folder.
 4. Custom domain: the included `CNAME` file already points to
@@ -28,31 +30,42 @@ CNAME                GitHub Pages custom domain (clenterprisesllc.com)
 
 No build tools, no `npm install` — it's ready to serve as-is.
 
-## Replacing the placeholder photography
+## Asset inventory
 
-Every image in `images/` is currently a hand-built SVG placeholder (clean
-line-art on a soft gradient) rather than a photo — this keeps the package
-fully self-contained with nothing hotlinked from a third party. Each one
-is a drop-in replacement target:
+**Portrait (final, optimized):**
+- `images/chris-lund-portrait.jpg` — 900×1100, ~150KB, served to desktop/tablet
+- `images/chris-lund-portrait-640.jpg` — 640×783, ~84KB, served to phones via `srcset`
+
+Both are real photography, cropped to the site's 9:11 frame with no
+distortion. The browser automatically picks the right size for the
+viewport — phones never download the larger desktop file.
+
+**Industries Served illustrations (final, custom, ~500 bytes each):**
+- `images/icon-electronics.svg`
+- `images/icon-medical-devices.svg`
+- `images/icon-industrial-manufacturing.svg`
+- `images/icon-contract-manufacturing.svg`
+- `images/icon-metals-components.svg`
+- `images/icon-cable-interconnect.svg`
+
+A custom-drawn, single-stroke line-art set sharing one visual language
+(consistent stroke weight, one steel-gray linework color, one blue accent
+dot per icon) — designed to read as understated and credible to a
+manufacturing audience, not playful or decorative.
+
+**Still a placeholder:**
+- `images/hero-facility.svg` — line-art graphic behind the hero headline
+  (visible on tablet/desktop only). This is the one remaining slot to fill
+  with real photography before full launch.
 
 | File | Slot | Suggested real photo |
 |---|---|---|
 | images/hero-facility.svg | Hero background (desktop/tablet only) | Modern manufacturing facility, clean equipment, natural light, negative space on the left for the headline |
-| images/chris-lund-portrait.svg | About section | Chris, business casual, inside a manufacturing environment, natural/approachable expression |
-| images/medical-devices.svg | Industries card | Clean-room manufacturing |
-| images/electronics.svg | Industries card | PCB assembly / circuit board production |
-| images/industrial-manufacturing.svg | Industries card | Precision CNC machining |
-| images/contract-manufacturing.svg | Industries card | Modern production line / assembly operation |
-| images/metals-components.svg | Industries card | Precision machined metal components |
-| images/cables-interconnects.svg | Industries card | Wire harness / cable assembly |
 
-**To replace an image:** save the new photo into `images/` with the same
-filename (convert to `.jpg` and update the `src` in `index.html` if the
-new file uses a different extension), keeping roughly the same aspect ratio:
-
-- Hero: wide, ~3:2 (e.g. 1800×1200 or larger)
-- Portrait: vertical, ~9:11 (e.g. 1200×1467 or larger)
-- Industry cards: ~4:3 (e.g. 1280×960 or larger)
+**To replace it:** save the new photo into `images/` as `hero-facility.jpg`
+(or keep the `.svg` name and swap the file — just update the `src` in
+`index.html` if the extension changes), wide format, ~3:2 (e.g. 1800×1200
+or larger).
 
 Style guide for replacement photography: neutral color grading, blue/gray
 industrial tones, natural lighting, clean modern facilities, minimal
@@ -72,3 +85,4 @@ real favicon file reference once a final mark is ready.
 Built with standard, broadly-supported CSS (Grid, Flexbox, `clamp()`,
 `aspect-ratio`) and vanilla JS (`IntersectionObserver` with a fallback).
 No polyfills required for current versions of Chrome, Safari, Firefox, or Edge.
+
