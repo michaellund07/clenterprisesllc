@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true">
-  <g fill="none" stroke="#5B6470" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-    
-    <path d="M48 8v12"/>
-    <rect x="38" y="20" width="20" height="10" rx="2"/>
-    <path d="M44 30l-3 14M52 30l3 14"/>
-    <path d="M41 44h14v8h-14z"/>
-    <rect x="18" y="60" width="60" height="12" rx="2"/>
-    <path d="M18 72v8M78 72v8M18 80h60"/>
-    <circle cx="48" cy="52" r="3" fill="#4F7396" stroke="none"/>
-
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true"><g fill="none" stroke="#5B6470" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M48 8v12"/><rect x="38" y="20" width="20" height="10" rx="2"/><path d="M44 30l-3 14M52 30l3 14"/><path d="M41 44h14v8h-14z"/><rect x="18" y="60" width="60" height="12" rx="2"/><path d="M18 72v8M78 72v8M18 80h60"/><circle cx="48" cy="52" r="3" fill="#4F7396" stroke="none"/></g></svg>
